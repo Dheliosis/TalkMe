@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# Setup - Nom du projet
+prjName="talkme"
+
+# Message d'aide pour gérer sa pile docker
+print_usage_compose() {
+    echo "  Usage: $0 compose <dev | prod> [--help] [ARGS...]"
+}
+
+# Message d'aide pour build une image docker
+print_usage_build() {
+    echo "  Usage: $0 build <dev | prod> <version> [--help]"
+}
+
+# Message d'aide général
+print_help_and_exit() {
+    echo "dcTool - Outil pour gérer vos environnements Docker."
+    echo
+    echo "Gérer sa pile docker :"
+    print_usage_compose
+    echo
+    echo "Build une image docker :"
+    print_usage_build
+    echo
+    echo "Environnement : "
+    echo "  dev : configure pour l'environnement de développement."
+    echo "  prod : configure pour l'environnement de recette (preprod) ou de production (prod)."
+    echo
+    echo "Paramètres optionnels :"
+    echo "  -h, --help : affiche cette aide."
+    echo "  ARGS : exemple des arguments pour gérer sa pile avec docker-compose (ex.: up)"
+    exit 1
+}
+
+#  Gérer si paramètres null ou si appel de l'aide
+if [ $# -eq 0 ]; then
+    echo "Mauvais paramètres" >&2
+    print_help_and_exit
+elif [ "$1" == "-h" -o "$1" == "--help" ]; then
+    print_help_and_exit
+fi
+
+# Setup environnement (dev | prod)
+case $2 in
+dev | prod | staging) typeEnv=$2 ;;
+*)
+    echo "Paramètre incorrect \"$2\"" >&2
+    print_help_and_exit
+    ;;
+esac
+
+# Gérer sa pile docker ou build une image docker
+case $1 in
+compose)
+    cmd="docker compose"
+
+    if [ $typeEnv -eq "staging" ]; then
+        prjName="talkme-staging"
+    fi
+
+    dcFile="./docker/$typeEnv/docker-compose.yml"
+    shift 2;
+
+    set -x
+    ${cmd} -f ${dcFile} -p ${prjName} $@
+    exit $?
+    ;;
+build)
+    cmd="docker build"
+
+    if [ "$typeEnv" == "dev" ]; then
+        pathEnv="../server/"
+        version="dev-$3"
+    elif [ "$typeEnv" == "prod" ]; then
+        pathEnv="../server/Dockerfile.prod"
+        version="$3"
+    fi
+
+    set -x
+    ${cmd} -t ${prjName}:${version} ${pathEnv}
+    exit $?
+    ;;
+*)
+    echo "Paramètre incorrect \"$1\"" >&2
+    print_help_and_exit
+    ;;
+esac
