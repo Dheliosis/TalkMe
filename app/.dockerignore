@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.npmrc
+pnpm-lock.yaml
+
+Dockerfile
+Dockerfile.prod
+.dockerignore
+
+.git
+.gitignore
+
+*.env
+
+README.md
