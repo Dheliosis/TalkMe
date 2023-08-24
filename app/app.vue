@@ -309,7 +309,7 @@ const inputsIso = [
         </section>
       </div>
 
-      <div class="w-1/2 flex items-center justify-center fixed right-0 top-20">
+      <div class="w-1/2 flex items-center justify-center fixed right-0 top-20 bottom-20">
         <img src="./public/entreprise.svg" class="w-5/6" />
       </div>
     </div>
