@@ -10,7 +10,7 @@ const props = defineProps(
 </script>
 
 <template>
-	<ul class=" flex flex-wrap w-full gap-6">
-		<Checkbox v-for="input in inputs" :title="input.title" />
+	<ul class=" flex flex-wrap w-full gap-3">
+		<Checkbox v-for="input in inputs" :title="input.title" :subtitle="input.subtitle" />
 	</ul>
 </template>
