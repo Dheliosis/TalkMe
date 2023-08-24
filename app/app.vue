@@ -180,7 +180,8 @@ const inputsIso = [
 </script>
 
 <template>
-  <div class="mx-24 my-10 font-Poppins">
+  <Header progress1="100" progress2="0" progress3="0" />
+  <div class="mx-24 my-14 font-Poppins">
     <div class="flex w-full">
 
       <div class="w-1/2 h-screen scroll-smooth">
@@ -308,7 +309,7 @@ const inputsIso = [
         </section>
       </div>
 
-      <div class="w-1/2 flex items-center justify-center fixed right-0 top-20">
+      <div class="w-1/2 flex items-center justify-center fixed right-0 top-20 bottom-20">
         <img src="./public/entreprise.svg" class="w-5/6" />
       </div>
     </div>
