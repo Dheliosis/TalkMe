@@ -40,7 +40,7 @@ onMounted(() => {
     </div>
 
     <div class="flex justify-center p-4">
-      <Button></Button>
+      <Button action="Suivant"></Button>
     </div>
 
     <div id="modal" tabindex="-1" aria-hidden="true"
