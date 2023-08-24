@@ -180,7 +180,8 @@ const inputsIso = [
 </script>
 
 <template>
-  <div class="mx-24 my-10 font-Poppins">
+  <Header progress1="100" progress2="0" progress3="0" />
+  <div class="mx-24 my-14 font-Poppins">
     <div class="flex w-full">
 
       <div class="w-1/2 h-screen scroll-smooth">
