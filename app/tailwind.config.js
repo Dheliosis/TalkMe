@@ -29,7 +29,11 @@ module.exports = {
           primary: "#1C1A17",
           secondary: "#A39C8F"
         },
-      }
+      },
+      fontFamily: {
+        'Poppins': ["Poppins", "ui-sans-serif", "system-ui"],
+      },
+
     },
   },
   plugins: [
