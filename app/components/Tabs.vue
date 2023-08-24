@@ -9,6 +9,8 @@ const props = defineProps({
 });
 const { steps } = props;
 
+let tabsComponent = null;
+
 // initialize components based on data attribute selectors
 onMounted(() => {
     let tabElements = [];
@@ -36,12 +38,13 @@ onMounted(() => {
     * tabElements: array of tab objects
     * options: optional
     */
-    const tabs = new Tabs(tabElements, options);
+    tabsComponent = new Tabs(tabElements, options);
 })
+
 </script>
 
 <template>
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700 hidden">
+    <div class="hidden">
         <ul class="flex flex-wrap mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400" id="tabExample"
             role="tablist">
             <li class="mr-2" role="presentation" v-for="step in steps">
@@ -53,33 +56,12 @@ onMounted(() => {
         </ul>
     </div>
     <div id="tabContentExample">
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel"
-            aria-labelledby="profile-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                    class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking
-                another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control
-                the content visibility and styling.</p>
-        </div>
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel"
-            aria-labelledby="dashboard-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                    class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking
-                another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control
-                the content visibility and styling.</p>
-        </div>
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel"
-            aria-labelledby="settings-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                    class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking
-                another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control
-                the content visibility and styling.</p>
-        </div>
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel"
-            aria-labelledby="contacts-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                    class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking
-                another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control
-                the content visibility and styling.</p>
+        <slot></slot>
+        <div class="h-max flex mt-2 justify-end w-11/12">
+            <Button action="Précédent"
+                v-on:click="tabsComponent.show(steps[steps.indexOf(tabsComponent.getActiveTab().id) - 1]) && decrement()" />
+            <Button action="Suivant"
+                v-on:click="tabsComponent.show(steps[steps.indexOf(tabsComponent.getActiveTab().id) + 1]) && increment()" />
         </div>
     </div>
 </template>
