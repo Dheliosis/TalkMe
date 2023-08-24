@@ -181,7 +181,7 @@ const inputsIso = [
 
 <template>
   <Header progress1="100" progress2="0" progress3="0" />
-  <div class="mx-24 my-14 font-Poppins">
+  <div class="lg:mx-24 mx-4 my-14 font-Poppins">
     <div class="flex w-full">
 
       <div class="lg:w-1/2 w-full h-screen scroll-smooth">
