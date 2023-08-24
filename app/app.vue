@@ -186,11 +186,11 @@ const inputsIso = [
 
       <div class="lg:w-1/2 w-full h-screen scroll-smooth">
         <section id="entrepriseType">
-          <div class="w-max mb-7">
+          <div class="mb-7">
             <h1 class="text-2xl font-semibold">Informations de votre entreprise</h1>
-            <div class="w-1/3 h-1 bg-primary-500 rounded mt-2"></div>
+            <div class="w-1/5 h-1 bg-primary-500 rounded mt-2"></div>
           </div>
-          <p class="w-5/6">
+          <p class="lg:w-5/6 w-full">
             Personnalisez votre module industriel en toute simplicité avec notre formulaire dédié. Nous vous accompagnons
             pas
             à
