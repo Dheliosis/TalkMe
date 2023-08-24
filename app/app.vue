@@ -181,16 +181,16 @@ const inputsIso = [
 
 <template>
   <Header progress1="100" progress2="0" progress3="0" />
-  <div class="mx-24 my-14 font-Poppins">
+  <div class="lg:mx-24 mx-4 my-14 font-Poppins">
     <div class="flex w-full">
 
-      <div class="w-1/2 h-screen scroll-smooth">
+      <div class="lg:w-1/2 w-full h-screen scroll-smooth">
         <section id="entrepriseType">
-          <div class="w-max mb-7">
+          <div class="mb-7">
             <h1 class="text-2xl font-semibold">Informations de votre entreprise</h1>
-            <div class="w-1/3 h-1 bg-primary-500 rounded mt-2"></div>
+            <div class="w-1/5 h-1 bg-primary-500 rounded mt-2"></div>
           </div>
-          <p class="w-5/6">
+          <p class="lg:w-5/6 w-full">
             Personnalisez votre module industriel en toute simplicité avec notre formulaire dédié. Nous vous accompagnons
             pas
             à
@@ -309,7 +309,7 @@ const inputsIso = [
         </section>
       </div>
 
-      <div class="w-1/2 flex items-center justify-center fixed right-0 top-20 bottom-20">
+      <div class="lg:w-1/2 lg:flex hidden items-center justify-center fixed right-0 top-20 bottom-20">
         <img src="./public/entreprise.svg" class="w-5/6" />
       </div>
     </div>
