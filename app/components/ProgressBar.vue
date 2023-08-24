@@ -13,14 +13,9 @@ const { progressBarLabel, progress } = props;
 </script>
 
 <template>
-     {{ progressBarLabel }}
-        {{ progress }}
-    
     <div class="mb-1 text-base font-medium dark:text-white" v-if="progressBarLabel">
         {{ progressBarLabel }}</div>
-    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-    <div class="bg-blue-600 h-2.5 rounded-full dark:bg-blue-500" style="width: {{progress}}"></div>
+    <div class="w-full bg-gray-200 rounded-full h-2 m-auto dark:bg-gray-700">
+        <div class="bg-primary-500 h-2 rounded-full" :style="`width: ${progress}%`"></div>
     </div>
-    
-
 </template>
