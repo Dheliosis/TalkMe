@@ -90,15 +90,15 @@ const inputsLogicielType = [
 const radioInputsEntrepriseSize = [
   {
     title: "PME",
-    subtitle: 'Petites et moyennes entreprises',
+    subtitle: 'Petite et moyenne entreprise',
     chiffre: "(-250 employés)"
   }, {
     title: "ETI",
-    subtitle: 'Entreprises de taille intermédiaire',
+    subtitle: 'Entreprise de taille intermédiaire',
     chiffre: "(250 à 4 999 employés)"
 
   }, {
-    title: "Grandes entreprises",
+    title: "Grande entreprise",
     chiffre: "(+ 5 000 employés)"
   },
 ]
@@ -198,7 +198,7 @@ const inputsIso = [
           </p>
 
           <div class="mt-7">
-            <h2 class="text-xl font-semibold">Quels type d'entreprise êtes-vous&nbsp;? (secteur d'activité)</h2>
+            <h2 class="text-xl font-semibold">Quel type d'entreprise êtes-vous&nbsp;? (secteur d'activité)</h2>
             <div class="mt-5">
               <RadioCardList :inputs="inputsEntrepriseType" />
             </div>
@@ -266,7 +266,7 @@ const inputsIso = [
         </section>
         <section id="process" class="mt-24 h-screen flex items-center">
           <div class="">
-            <h2 class="text-xl font-semibold">Quel processus souhaitez vous optimiser dans votre entreprise&nbsp;?
+            <h2 class="text-xl font-semibold">Quels processus souhaitez vous optimiser dans votre entreprise&nbsp;?
             </h2>
             <div class="mt-5">
               <CheckBoxCardList :inputs="inputsProcess" />
